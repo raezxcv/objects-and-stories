@@ -1,0 +1,80 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    background-color: #FAF8F5;
+    color: #181816;
+    overflow-x: hidden;
+  }
+
+  ::selection {
+    background-color: #E2DDD5;
+    color: #181816;
+  }
+}
+
+/* Subtle Editorial Scrollbar */
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: #FAF8F5;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #D4CEBF;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #8F877C;
+}
+
+/* Editorial Drop Cap */
+.drop-cap::first-letter {
+  font-family: "Libre Bodoni", "Cormorant Garamond", Georgia, serif;
+  float: left;
+  font-size: 3.75rem;
+  line-height: 0.85;
+  margin-top: 0.15rem;
+  margin-right: 0.65rem;
+  font-weight: 500;
+  color: #181816;
+}
+
+/* Editorial Image Still-Life Frame */
+.editorial-image-frame {
+  position: relative;
+  overflow: hidden;
+  background-color: #EFECE6;
+}
+
+.editorial-image-frame img {
+  transition: transform 0.85s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.editorial-image-frame:hover img {
+  transform: scale(1.02);
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  ::before,
+  ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
